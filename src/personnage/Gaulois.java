@@ -1,5 +1,6 @@
 package personnage;
 
+import Structure.Musee;
 import personnage.matos.Equipement;
 
 public class Gaulois {
@@ -62,9 +63,20 @@ public class Gaulois {
 		Romain John = new Romain("John",1);
 		asterix.frapper(John);
 	}
+	
+	public void faireUneDonnation(Musee musee,Gaulois gaulois) {
+		if (nb_trophees!=0) {
+			parler("Je donne au musée tous mes trophées :");
+			for (int i=0;i<nb_trophees;i++) {
+				System.out.println("- "+ trophees[i].toString() +" \n");
+				musee.donnerTrophee(gaulois,trophees[i]);
+		}
+	}
+}
 
 	public void boirePotion(int forcePotion) {
 		effetPotion = forcePotion;
 		parler("Merci Druide, je sens que ma force est " + String.valueOf(forcePotion) + " fois decuplee");
 	}
+
 }
